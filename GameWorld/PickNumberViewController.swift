@@ -8,12 +8,21 @@
 
 import UIKit
 
+
+enum GuessNumber {
+    case single
+    case multiple
+}
+
 class PickNumberViewController: UIViewController {
 
+    @IBOutlet weak var segmentCtrl: UISegmentedControl!
+    @IBOutlet weak var singleView: UIStackView!
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var guessTimes: UILabel!
-
+    
+    var gameType: GuessNumber = .single
     var guessNumber = 0
     var range = (min: 1, max: 100)
     var count = 0
@@ -35,6 +44,11 @@ class PickNumberViewController: UIViewController {
     }
 
     //MARK: - Button events
+    @IBAction func segmentCtrlChanged(_ sender: UISegmentedControl) {
+        gameType = (sender.selectedSegmentIndex == 1) ? .multiple : .single
+        singleView.isHidden = (sender.selectedSegmentIndex == 1)
+    }
+    
     @IBAction func touchOKButton(_ sender: Any) {
         count += 1
         guessTimes.text = "猜測次數：\(count.description)"
@@ -43,13 +57,7 @@ class PickNumberViewController: UIViewController {
             let message = "答對了！答案就是 \(guessNumber)！\n\(guessTimes.text!)"
             let alert = UIAlertController(title: "Congratulation", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.guessNumber = Int(arc4random_uniform(100))+1
-                self.range = (min: 1, max: 100)
-                self.count = 0
-                
-                self.inputTextField.text = ""
-                self.descriptionLabel.text = ""
-                self.guessTimes.text = ""
+                self.newGame()
             }))
             present(alert, animated: true)
         } else {
@@ -59,6 +67,16 @@ class PickNumberViewController: UIViewController {
     }
 
     //MARK: - functions
+    func newGame() {
+        guessNumber = Int(arc4random_uniform(100))+1
+        range = (min: 1, max: 100)
+        count = 0
+        
+        inputTextField.text = ""
+        descriptionLabel.text = ""
+        guessTimes.text = ""
+    }
+    
     func checkNumber(_ number: Int) {
         if number > guessNumber {
             range.max = number

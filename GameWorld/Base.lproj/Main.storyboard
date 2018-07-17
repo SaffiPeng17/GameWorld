@@ -82,12 +82,12 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="PRF-ll-0Q0">
-                                <rect key="frame" x="28" y="211" width="319" height="232"/>
+                                <rect key="frame" x="28" y="241.5" width="319" height="173"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入 1~100 範圍的數字" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3g-6y-Zjz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邊緣人換你了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3g-6y-Zjz">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.54709598039999996" green="0.54709598039999996" blue="0.54709598039999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cOH-cd-txa">
@@ -120,16 +120,22 @@
                                             <constraint firstItem="Vhn-qe-VNJ" firstAttribute="width" secondItem="vRp-Pg-skv" secondAttribute="width" id="9TS-Wl-wWb"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nf-CI-AkD">
-                                        <rect key="frame" x="0.0" y="107" width="319" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入 1~100 範圍內的數字" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nf-CI-AkD">
+                                        <rect key="frame" x="0.0" y="107" width="319" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT4-Sd-KCg">
-                                        <rect key="frame" x="0.0" y="182" width="319" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="猜測紀錄：" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT4-Sd-KCg">
+                                        <rect key="frame" x="0.0" y="152.5" width="319" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="猜測紀錄：" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJm-Nq-D8d">
+                                        <rect key="frame" x="0.0" y="173" width="319" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.76470588235294112" green="0.46274509803921571" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -138,6 +144,7 @@
                                     <constraint firstItem="VT4-Sd-KCg" firstAttribute="width" secondItem="PRF-ll-0Q0" secondAttribute="width" id="RHB-Ya-yXc"/>
                                     <constraint firstItem="1nf-CI-AkD" firstAttribute="width" secondItem="PRF-ll-0Q0" secondAttribute="width" id="a7h-Ho-VKa"/>
                                     <constraint firstItem="cOH-cd-txa" firstAttribute="width" secondItem="PRF-ll-0Q0" secondAttribute="width" id="h4N-RT-q8s"/>
+                                    <constraint firstItem="vJm-Nq-D8d" firstAttribute="width" secondItem="PRF-ll-0Q0" secondAttribute="width" id="uG0-BB-YmB"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -153,10 +160,11 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="1nf-CI-AkD" id="See-K3-crk"/>
-                        <outlet property="guessTimes" destination="VT4-Sd-KCg" id="kL6-TF-de0"/>
+                        <outlet property="guessPlayer1" destination="VT4-Sd-KCg" id="GVx-Ia-OoY"/>
+                        <outlet property="guessPlayer2" destination="vJm-Nq-D8d" id="2xf-oW-1fg"/>
                         <outlet property="inputTextField" destination="vRp-Pg-skv" id="Mk0-fU-BTD"/>
                         <outlet property="segmentCtrl" destination="yNB-4h-eWi" id="ZoS-H6-aVd"/>
-                        <outlet property="singleView" destination="PRF-ll-0Q0" id="2Q1-kU-4GU"/>
+                        <outlet property="userLabel" destination="Q3g-6y-Zjz" id="mrw-7l-tIC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXT-Lh-33E" userLabel="First Responder" sceneMemberID="firstResponder"/>

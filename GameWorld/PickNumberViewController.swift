@@ -17,15 +17,19 @@ enum GuessNumber {
 class PickNumberViewController: UIViewController {
 
     @IBOutlet weak var segmentCtrl: UISegmentedControl!
-    @IBOutlet weak var singleView: UIStackView!
+    
+    @IBOutlet weak var userLabel: UILabel!
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var guessTimes: UILabel!
+    @IBOutlet weak var guessPlayer1: UILabel!
+    @IBOutlet weak var guessPlayer2: UILabel!
     
     var gameType: GuessNumber = .single
+    var named = (player0:"邊緣人", player1: "Player 1", player2: "Player 2")
+    var whoIsThere = ""
+    var multiPlayerRecord = ["Player 1": [Int](), "Player 2": [Int]()]
     var guessNumber = 0
     var range = (min: 1, max: 100)
-    var count = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,23 +50,42 @@ class PickNumberViewController: UIViewController {
     //MARK: - Button events
     @IBAction func segmentCtrlChanged(_ sender: UISegmentedControl) {
         gameType = (sender.selectedSegmentIndex == 1) ? .multiple : .single
-        singleView.isHidden = (sender.selectedSegmentIndex == 1)
+        newGame()
+        whoIsThere = (sender.selectedSegmentIndex == 1) ? named.player1 : named.player0
+        userLabel.text = "\(whoIsThere) 換你了"
     }
     
     @IBAction func touchOKButton(_ sender: Any) {
-        count += 1
-        guessTimes.text = "猜測次數：\(count.description)"
         let inputNumber = (inputTextField.text == nil) ? 1 : Int(inputTextField.text!)!
-        if Int(inputTextField.text!)! == guessNumber {
-            let message = "答對了！答案就是 \(guessNumber)！\n\(guessTimes.text!)"
+        if inputNumber == guessNumber {
+            let message = (gameType == .multiple) ? "\(whoIsThere) 輸了！\n爆炸數字就是 \(guessNumber)！X_X" : "答對了！答案就是 \(guessNumber)！\n\(multiPlayerRecord["Player 1"]!.count)"
             let alert = UIAlertController(title: "Congratulation", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                 self.newGame()
             }))
             present(alert, animated: true)
         } else {
-            checkNumber(inputNumber)
-            descriptionLabel.text = "\(range.min) ~ \(range.max)"
+            if checkNumber(inputNumber) {
+                descriptionLabel.text = "\(range.min) ~ \(range.max)"
+                inputTextField.text = ""
+                //change
+                if gameType == .multiple {
+                    var array = multiPlayerRecord[whoIsThere]
+                    array?.append(inputNumber)
+                    multiPlayerRecord[whoIsThere] = array
+                    guessPlayer1.text = "Player1 猜測：\(multiPlayerRecord["Player 1"]!.compactMap({String($0)}).joined(separator: ", "))"
+                    guessPlayer2.text = "Player2 猜測：\(multiPlayerRecord["Player 2"]!.compactMap({String($0)}).joined(separator: ", "))"
+                    
+                    whoIsThere = (whoIsThere == named.player1) ? named.player2 : named.player1
+                    userLabel.text = "\(whoIsThere) 換你了"
+                    userLabel.textColor = (whoIsThere == named.player1) ? .blue : UIColor(red: 195/255, green: 118/255, blue: 154/255, alpha: 1)
+                } else {
+                    var array = multiPlayerRecord["Player 1"]
+                    array?.append(inputNumber)
+                    multiPlayerRecord["Player 1"] = array
+                    guessPlayer1.text = "猜測：\(multiPlayerRecord["Player 1"]!.map({"\($0)"}).joined(separator: ", "))"
+                }
+            }
         }
     }
 
@@ -70,19 +93,27 @@ class PickNumberViewController: UIViewController {
     func newGame() {
         guessNumber = Int(arc4random_uniform(100))+1
         range = (min: 1, max: 100)
-        count = 0
+        whoIsThere = ""
+        multiPlayerRecord = ["Player 1": [Int](), "Player 2": [Int]()]
         
-        inputTextField.text = ""
-        descriptionLabel.text = ""
-        guessTimes.text = ""
+        inputTextField.text = nil
+        descriptionLabel.text = (gameType == .multiple) ? "爆炸數字為 1~100 範圍內的數字" : "請輸入 1~100 範圍內的數字"
+        guessPlayer1.text = (gameType == .multiple) ? "Player1 猜測紀錄：" : "猜測紀錄："
+        guessPlayer2.text = "Player2 猜測紀錄："
+        guessPlayer2.isHidden = !(gameType == .multiple)
     }
     
-    func checkNumber(_ number: Int) {
-        if number > guessNumber {
-            range.max = number
-        } else if number < guessNumber {
-            range.min = number
+    func checkNumber(_ number: Int) -> Bool {
+        guard number > range.min && number < range.max else {
+            let alert = UIAlertController(title: "Error", message: "輸入的數字不在範圍內！", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+            return false
         }
+        range.max = (number > guessNumber) ? number : range.max
+        range.min = (number < guessNumber) ? number : range.min
+
+        return true
     }
 }
 

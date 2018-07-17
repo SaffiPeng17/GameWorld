@@ -52,6 +52,23 @@
                                     <segue destination="i1Q-2y-Bu7" kind="show" identifier="guessnumber" id="ElP-LQ-8tG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gi-Uf-CCk">
+                                <rect key="frame" x="116" y="236" width="143" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="指定句子">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="bXl-tL-fNG" kind="show" id="dzz-Cw-rYe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="j9l-Ol-wbU"/>
@@ -82,7 +99,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="PRF-ll-0Q0">
-                                <rect key="frame" x="28" y="241.5" width="319" height="173"/>
+                                <rect key="frame" x="28" y="240.5" width="319" height="173"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邊緣人換你了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3g-6y-Zjz">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="24"/>
@@ -101,7 +118,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhn-qe-VNJ">
                                                 <rect key="frame" x="164.5" y="0.0" width="154.5" height="33"/>
-                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="1" green="0.57647058823529407" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="確定">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,6 +187,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXT-Lh-33E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="169.56521739130437"/>
+        </scene>
+        <!--Say The Words View Controller-->
+        <scene sceneID="ZyH-Ja-CRv">
+            <objects>
+                <viewController id="bXl-tL-fNG" customClass="SayTheWordsViewController" customModule="GameWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ivF-oR-p29">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="IoX-OJ-D4E">
+                                <rect key="frame" x="37.5" y="193" width="300.5" height="281"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="題目是：隨機出現一句話，請在 8 句話以內，引誘對方說出正確的句子！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuK-rY-j9U">
+                                        <rect key="frame" x="0.0" y="0.0" width="300.5" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoQ-tj-fa8">
+                                        <rect key="frame" x="0.0" y="132" width="300.5" height="39"/>
+                                        <color key="backgroundColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="產生題目">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createSentneceButton:" destination="bXl-tL-fNG" eventType="touchDown" id="Ool-ZZ-Qlm"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPF-NS-Q4c">
+                                        <rect key="frame" x="0.0" y="231" width="300.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FuK-rY-j9U" firstAttribute="width" secondItem="IoX-OJ-D4E" secondAttribute="width" id="24q-Qi-tNM"/>
+                                    <constraint firstItem="VoQ-tj-fa8" firstAttribute="width" secondItem="IoX-OJ-D4E" secondAttribute="width" id="nqh-It-7mw"/>
+                                    <constraint firstItem="TPF-NS-Q4c" firstAttribute="width" secondItem="IoX-OJ-D4E" secondAttribute="width" id="tQp-yQ-etK"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IoX-OJ-D4E" firstAttribute="centerX" secondItem="ivF-oR-p29" secondAttribute="centerX" id="0ZV-iR-wPt"/>
+                            <constraint firstItem="IoX-OJ-D4E" firstAttribute="width" secondItem="ivF-oR-p29" secondAttribute="width" multiplier="0.8" id="DZL-HQ-owH"/>
+                            <constraint firstItem="IoX-OJ-D4E" firstAttribute="centerY" secondItem="ivF-oR-p29" secondAttribute="centerY" id="P7B-WI-ZtT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sentence" destination="TPF-NS-Q4c" id="EaU-fz-kPs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewV-vr-xt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746.39999999999998" y="897.30134932533736"/>
         </scene>
     </scenes>
 </document>

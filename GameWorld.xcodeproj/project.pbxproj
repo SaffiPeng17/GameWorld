@@ -13,6 +13,7 @@
 		04DAEC6E20FCF36B00011D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DAEC6D20FCF36B00011D12 /* Assets.xcassets */; };
 		04DAEC7120FCF36B00011D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DAEC6F20FCF36B00011D12 /* LaunchScreen.storyboard */; };
 		04DAEC7920FCF5CF00011D12 /* PickNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAEC7820FCF5CF00011D12 /* PickNumberViewController.swift */; };
+		DE779DFE20FDFBE900FB081E /* SayTheWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE779DFD20FDFBE900FB081E /* SayTheWordsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		04DAEC7020FCF36B00011D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04DAEC7220FCF36B00011D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04DAEC7820FCF5CF00011D12 /* PickNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickNumberViewController.swift; sourceTree = "<group>"; };
+		DE779DFD20FDFBE900FB081E /* SayTheWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayTheWordsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				04DAEC6620FCF36A00011D12 /* AppDelegate.swift */,
 				04DAEC6820FCF36A00011D12 /* ViewController.swift */,
 				04DAEC7820FCF5CF00011D12 /* PickNumberViewController.swift */,
+				DE779DFD20FDFBE900FB081E /* SayTheWordsViewController.swift */,
 				04DAEC6A20FCF36A00011D12 /* Main.storyboard */,
 				04DAEC6D20FCF36B00011D12 /* Assets.xcassets */,
 				04DAEC6F20FCF36B00011D12 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				04DAEC7920FCF5CF00011D12 /* PickNumberViewController.swift in Sources */,
 				04DAEC6920FCF36A00011D12 /* ViewController.swift in Sources */,
+				DE779DFE20FDFBE900FB081E /* SayTheWordsViewController.swift in Sources */,
 				04DAEC6720FCF36A00011D12 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

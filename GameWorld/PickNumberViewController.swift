@@ -36,17 +36,26 @@ class PickNumberViewController: UIViewController {
 
     //MARK: - Button events
     @IBAction func touchOKButton(_ sender: Any) {
-        let inputNumber = (inputTextField.text == nil) ? 1 : Int(inputTextField.text!)!
-        if Int(inputTextField.text!)! == guessNumber {
-            descriptionLabel.textColor = .green
-            descriptionLabel.text = "答對了！答案就是 \(guessNumber)！"
-        } else {
-            checkNumber(inputNumber)
-            descriptionLabel.textColor = .red
-            descriptionLabel.text = "\(range.min) ~ \(range.max)"
-        }
         count += 1
         guessTimes.text = "猜測次數：\(count.description)"
+        let inputNumber = (inputTextField.text == nil) ? 1 : Int(inputTextField.text!)!
+        if Int(inputTextField.text!)! == guessNumber {
+            let message = "答對了！答案就是 \(guessNumber)！\n\(guessTimes.text!)"
+            let alert = UIAlertController(title: "Congratulation", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.guessNumber = Int(arc4random_uniform(100))+1
+                self.range = (min: 1, max: 100)
+                self.count = 0
+                
+                self.inputTextField.text = ""
+                self.descriptionLabel.text = ""
+                self.guessTimes.text = ""
+            }))
+            present(alert, animated: true)
+        } else {
+            checkNumber(inputNumber)
+            descriptionLabel.text = "\(range.min) ~ \(range.max)"
+        }
     }
 
     //MARK: - functions
